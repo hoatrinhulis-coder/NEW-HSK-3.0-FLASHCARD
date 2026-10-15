@@ -1,0 +1,43 @@
+<title>Thẻ từ mới HSK 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#f6f5f1;--fg:#1b1f1d;--mut:#6b716d;--card:#fff;--line:#e2e0d8;--acc:#047857;--accfg:#fff;--lock:#eceae3}
+@media (prefers-color-scheme:dark){:root{--bg:#121513;--fg:#eceee9;--mut:#9aa19c;--card:#1b1f1c;--line:#2c322e;--acc:#34d399;--accfg:#06241a;--lock:#191c1a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left))}
+.w{max-width:720px;margin:0 auto}
+h1{font-size:26px;margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 24px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.c{display:flex;flex-direction:column;gap:2px;padding:14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:inherit;text-decoration:none;min-width:0}
+a.c:hover{border-color:var(--acc)}
+.n{font-weight:700;font-size:18px}
+.t{font-size:13px;color:var(--mut)}
+.c.l{background:var(--lock);cursor:not-allowed;opacity:.7}
+.c.l .n::after{content:" 🔒"}
+.c.o .t{color:var(--acc);font-weight:600}
+</style>
+<div class="w">
+<h1>Thẻ từ mới HSK 1</h1>
+<p class="sub" id="sub"></p>
+<div class="g" id="g"></div>
+</div>
+<script>
+// ====== GIÁO VIÊN SỬA 2 DÒNG NÀY ======
+var TEN_LOP = "Lớp 5";
+var MO_DEN  = 1;   // đã mở đến bài số mấy (1 = chỉ bài 1; 2 = bài 1 và 2; ...)
+// ======================================
+var TONG = 15;
+var TIEU_DE = {1:"AI小语，你好！"};
+document.getElementById('sub').textContent = TEN_LOP + " · Đã mở đến bài " + MO_DEN + "/" + TONG;
+var g = document.getElementById('g');
+for (var i=1;i<=TONG;i++){
+  var open = i<=MO_DEN;
+  var el = document.createElement(open?'a':'div');
+  el.className = 'c ' + (open?'o':'l');
+  if(open) el.href = '../bai'+i+'/';
+  el.innerHTML = '<span class="n">Bài '+i+'</span><span class="t">'+(open?(TIEU_DE[i]||'Từ mới'):'Chưa mở')+'</span>';
+  g.appendChild(el);
+}
+</script>
